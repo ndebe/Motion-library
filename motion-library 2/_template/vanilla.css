@@ -1,0 +1,5 @@
+/* <effect> — vanilla CSS. Resting/hidden state + reduced-motion fallback. */
+
+@media (prefers-reduced-motion: reduce){
+  /* show final state instantly */
+}

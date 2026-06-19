@@ -1,0 +1,14 @@
+{
+  "id": "my-effect-id",
+  "title": "Human-readable title",
+  "category": "pictures | buttons | links | lists | nav | text | sections | page | loaders | cursor | backgrounds",
+  "target": ["image | button | link | list | nav | text | heading | section | page"],
+  "trigger": ["load | scroll | hover | click | in-view | loop"],
+  "type": ["reveal | wipe | fade | parallax | magnetic | stagger | marquee | hover | loop | smooth-scroll | state-change"],
+  "tags": ["free", "keywords"],
+  "description": "One or two sentences: what it does and what makes it feel right.",
+  "source": { "name": "where it came from", "verified": false },
+  "params": { "duration": "", "ease": "" },
+  "a11y": "How it handles prefers-reduced-motion / pointer type.",
+  "createdAt": "YYYY-MM-DD"
+}

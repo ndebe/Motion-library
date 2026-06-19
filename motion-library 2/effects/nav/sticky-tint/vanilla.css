@@ -1,0 +1,12 @@
+/* Sticky nav tint — vanilla CSS. Add .st-nav to a fixed bar; JS toggles .tinted. */
+.st-nav{
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 24px;
+  background: transparent;
+  transition: background-color .2s linear, backdrop-filter .2s linear;
+}
+.st-nav.tinted{
+  background: rgba(13,13,13,.72);
+  backdrop-filter: blur(8px);
+}

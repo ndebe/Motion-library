@@ -1,0 +1,10 @@
+{
+  "name": "motion-library",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A personal, growing library of UI animations — grouped by where they act, tagged, browsable, and copy-pasteable.",
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  }
+}

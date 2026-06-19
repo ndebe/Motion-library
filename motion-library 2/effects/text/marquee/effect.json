@@ -1,0 +1,14 @@
+{
+  "id": "marquee",
+  "title": "Marquee with scroll-velocity surge",
+  "category": "text",
+  "target": ["text", "section"],
+  "trigger": ["load", "scroll"],
+  "type": ["loop", "marquee"],
+  "tags": ["raf", "infinite", "scroll-velocity", "ticker"],
+  "description": "An infinite horizontal ticker that drifts on a rAF loop and surges faster the quicker you scroll (scroll-velocity coupling). Track is duplicated for a seamless loop.",
+  "source": { "name": "common pattern", "verified": false },
+  "params": { "baseSpeed": "0.6px/frame", "velocityFactor": 0.6 },
+  "a11y": "aria-hidden decorative; pauses under prefers-reduced-motion.",
+  "createdAt": "2026-06-14"
+}

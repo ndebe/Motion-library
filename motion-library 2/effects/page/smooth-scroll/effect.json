@@ -1,0 +1,14 @@
+{
+  "id": "smooth-scroll",
+  "title": "Smooth / inertia scroll (the Lenis feel)",
+  "category": "page",
+  "target": ["page"],
+  "trigger": ["scroll"],
+  "type": ["smooth-scroll"],
+  "tags": ["lerp", "inertia", "lenis", "raf"],
+  "description": "Eases the page toward the real scroll position for a weighted, inertial feel. Hand-rolled vanilla version to show the mechanism, plus the drop-in Lenis snippet for production.",
+  "source": { "name": "Lenis (studiofreight) / common pattern", "verified": false },
+  "params": { "lerp": 0.1 },
+  "a11y": "Honor prefers-reduced-motion: skip smoothing, use native scroll.",
+  "createdAt": "2026-06-14"
+}
