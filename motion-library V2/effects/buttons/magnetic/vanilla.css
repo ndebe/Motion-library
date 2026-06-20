@@ -1,0 +1,8 @@
+/* Magnetic button — vanilla CSS. Markup: <a class="mag"><span class="mag__label">…</span></a> */
+.mag{
+  display:inline-block; padding:18px 34px; border:1px solid currentColor; border-radius:100px;
+  text-decoration:none; color:#f4f1ea; font:inherit; will-change:transform;
+}
+.mag__label{ display:inline-block; will-change:transform; pointer-events:none; }
+
+@media (prefers-reduced-motion: reduce){ .mag, .mag__label{ transition:none !important; transform:none !important; } }

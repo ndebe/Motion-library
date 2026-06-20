@@ -1,0 +1,5 @@
+/* Marquee — vanilla CSS. Markup:
+   <div class="mq"><div class="mq__inner"> …items… (duplicate the set) </div></div> */
+.mq{ overflow:hidden; white-space:nowrap; display:flex; }
+.mq__inner{ display:flex; will-change:transform; }
+.mq__inner > *{ flex:0 0 auto; padding:0 .3em; }

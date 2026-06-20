@@ -1,0 +1,14 @@
+{
+  "id": "hover-image-trail",
+  "title": "Hover-to-reveal index (image trails cursor)",
+  "category": "lists",
+  "target": ["list", "link", "image"],
+  "trigger": ["hover"],
+  "type": ["reveal", "trail"],
+  "tags": ["cursor", "lerp", "inertia", "image-swap"],
+  "description": "A text link list where hovering a row fades in a shared image that swaps its src per row and trails the cursor with inertia (lerp).",
+  "source": { "name": "common portfolio / work-index pattern", "verified": false },
+  "params": { "lerp": 0.12, "size": "280x340" },
+  "a11y": "Pointer-only enhancement; the list links work without it.",
+  "createdAt": "2026-06-14"
+}

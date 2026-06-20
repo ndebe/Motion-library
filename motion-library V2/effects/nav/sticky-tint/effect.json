@@ -1,0 +1,14 @@
+{
+  "id": "sticky-tint",
+  "title": "Sticky nav that tints on scroll",
+  "category": "nav",
+  "target": ["nav", "header"],
+  "trigger": ["scroll"],
+  "type": ["state-change"],
+  "tags": ["sticky", "fixed", "backdrop", "background"],
+  "description": "A position:fixed bar that fades a background/blur in once the user scrolls past a threshold. transition: background-color 0.2s linear.",
+  "source": { "name": "vanschneider.com", "verified": true },
+  "params": { "threshold": "60% of viewport height", "transition": "background-color .2s linear" },
+  "a11y": "No motion concerns; purely a color/opacity change.",
+  "createdAt": "2026-06-14"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "scroll-reveal",
+  "title": "Scroll reveal (fade · rise · skew · 3D tilt · blur)",
+  "category": "pictures",
+  "target": ["image", "section", "heading", "text"],
+  "trigger": ["scroll", "load"],
+  "type": ["reveal", "fade", "parallax"],
+  "tags": ["opacity", "translate", "skew", "3d", "blur", "power-ease", "stagger"],
+  "description": "The signature vanschneider.com move: as a block enters view it fades in while rising, skewing slightly, and rotating in 3D (and optionally un-blurring), over a slow 2-4s Power ease. Variants change the from-state per block.",
+  "source": { "name": "vanschneider.com", "verified": true },
+  "params": {
+    "duration": "2-4s (0.8s for small bits)",
+    "ease": "power2.out / power1.inOut",
+    "from": "opacity:0, y:24, skewY:-4deg, rotateY:10deg, blur(6px)",
+    "variants": ["default", "rise", "tilt", "blur", "skew"]
+  },
+  "a11y": "prefers-reduced-motion: fades only (no transform/blur).",
+  "createdAt": "2026-06-14"
+}
