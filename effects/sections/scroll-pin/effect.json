@@ -1,0 +1,18 @@
+{
+  "id": "scroll-pin",
+  "title": "Pinned scroll section (sticky + horizontal track)",
+  "category": "sections",
+  "target": ["section"],
+  "trigger": ["scroll"],
+  "type": ["parallax", "state-change"],
+  "tags": ["pin", "sticky", "horizontal-scroll", "scroll-progress", "scrub", "chapters"],
+  "description": "The landonorris.com chapter move: a section pins to the viewport (position:sticky) while a tall outer track scrolls past, and that scroll distance is mapped to a horizontal translate of an inner row — so vertical scrolling scrubs through panels left-to-right. Progress also drives a thin progress bar. CSS sticky does the pin; JS only maps progress to transform.",
+  "source": { "name": "landonorris.com", "verified": false },
+  "params": {
+    "pinHeight": "outer track = (panels) * 100vh",
+    "ease": "linear scrub (tied to scroll)",
+    "travel": "x = -progress * (trackWidth - viewportWidth)"
+  },
+  "a11y": "prefers-reduced-motion: track unpins and panels stack vertically (native scroll).",
+  "createdAt": "2026-06-14"
+}

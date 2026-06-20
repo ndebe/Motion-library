@@ -1,0 +1,60 @@
+/* Pinned scroll section — vanilla CSS.
+   Structure:
+     <section class="pin-track">          <- tall; gives scroll distance
+       <div class="pin-stage">            <- sticky; fills the viewport
+         <div class="pin-row">            <- JS translates this on X
+           <article class="pin-panel">…</article> × N
+         </div>
+         <div class="pin-progress"><i></i></div>
+       </div>
+     </section>
+   The pin itself is pure CSS (position:sticky). JS only scrubs the X. */
+
+.pin-track{ position:relative; }
+
+.pin-stage{
+  position:sticky;
+  top:0;
+  height:100vh;
+  overflow:hidden;
+  background:#0d0d0d;
+}
+
+.pin-row{
+  display:flex;
+  height:100%;
+  will-change:transform;
+}
+
+.pin-panel{
+  flex:0 0 70vw;
+  height:100%;
+  margin-right:2.2vw;
+  border-radius:10px;
+  display:grid;
+  place-content:center;
+  gap:8px;
+  padding:0 6vw;
+  color:#f4f1ea;
+  background:#161616;
+}
+.pin-panel:first-child{ margin-left:4vw; }
+.pin-panel h3{ margin:0; font:600 clamp(28px,6vw,72px)/1 ui-monospace,monospace; }
+.pin-panel p{ margin:0; max-width:40ch; color:#8a8a82; font:13px/1.6 ui-monospace,monospace; }
+
+.pin-progress{
+  position:absolute; left:6vw; right:6vw; bottom:28px; height:2px;
+  background:rgba(244,241,234,.16); border-radius:2px;
+}
+.pin-progress > i{
+  display:block; height:100%; width:0%;
+  background:#ff4d2e; border-radius:2px;
+}
+
+/* Reduced motion: drop the pin, let panels stack and scroll natively. */
+@media (prefers-reduced-motion: reduce){
+  .pin-stage{ position:static; height:auto; }
+  .pin-row{ flex-direction:column; }
+  .pin-panel{ flex:none; width:auto; height:auto; min-height:60vh; margin:0 4vw 14px; transform:none !important; }
+  .pin-progress{ display:none; }
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>scroll-velocity-skew demo</title>
+<link rel="stylesheet" href="vanilla.css" />
+<style>
+  body{ margin:0; background:#0d0d0d; color:#8a8a82; font-family:ui-monospace,monospace; }
+  .wrap{ padding:18px; max-width:680px; margin:0 auto; }
+  .cap{ font-size:11px; letter-spacing:.06em; padding:6px 2px 14px; }
+  .card{ height:34vh; margin:14px 0; border-radius:8px; display:grid; place-items:center;
+    color:#f4f1ea; font:600 22px/1 ui-monospace,monospace; }
+  .c1{ background:linear-gradient(135deg,#241310,#ff4d2e); }
+  .c2{ background:linear-gradient(135deg,#10141f,#3a6df0); }
+  .c3{ background:linear-gradient(135deg,#101a14,#27c08a); }
+  .c4{ background:linear-gradient(135deg,#1b1b1b,#8a8a82); color:#0d0d0d; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="cap">↓ scroll fast, then stop — blocks lean with momentum and spring back ↓</div>
+    <div class="card vskew c1">faster scroll = more lean</div>
+    <div class="card vskew c2">skewY clamped at ±6°</div>
+    <div class="card vskew c3">velocity is lerp-smoothed</div>
+    <div class="card vskew c4">springs flat at rest</div>
+    <div class="card vskew c1">scroll up too — it reverses</div>
+  </div>
+  <script src="vanilla.js"></script>
+</body>
+</html>

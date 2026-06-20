@@ -1,0 +1,18 @@
+{
+  "id": "scroll-velocity-skew",
+  "title": "Scroll velocity skew (momentum lean)",
+  "category": "page",
+  "target": ["page", "section", "image"],
+  "trigger": ["scroll"],
+  "type": ["smooth-scroll", "parallax"],
+  "tags": ["velocity", "skew", "scale", "inertia", "lerp", "raf", "momentum"],
+  "description": "The momentum cue paired with Lenis-style smooth scroll on landonorris.com: content skews and stretches a touch in the direction of travel based on scroll velocity, then springs back to flat when motion stops. Velocity is smoothed with a lerp so it feels weighted, not jittery. Great layered over the smooth-scroll effect.",
+  "source": { "name": "landonorris.com (paired with Lenis-style smooth scroll)", "verified": false },
+  "params": {
+    "skewMax": "~6deg clamp",
+    "smoothing": "velocity lerp 0.1",
+    "map": "skewY = clamp(velocity * 0.35, -6, 6); scaleY hint via |velocity|"
+  },
+  "a11y": "prefers-reduced-motion: no skew/scale, content stays flat.",
+  "createdAt": "2026-06-14"
+}

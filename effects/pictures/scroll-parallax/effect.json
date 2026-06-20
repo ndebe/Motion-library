@@ -1,0 +1,18 @@
+{
+  "id": "scroll-parallax",
+  "title": "Scroll parallax (layered media depth)",
+  "category": "pictures",
+  "target": ["image", "section"],
+  "trigger": ["scroll"],
+  "type": ["parallax"],
+  "tags": ["parallax", "depth", "translate", "scroll-progress", "data-speed", "raf"],
+  "description": "The landonorris.com depth move: full-bleed media sits in a fixed-aspect frame and its inner image (plus foreground/caption layers) translate at different speeds as the frame crosses the viewport, so foreground lags and background drifts. Speed per layer via data-speed; driven by a single rAF loop reading each frame's progress.",
+  "source": { "name": "landonorris.com", "verified": false },
+  "params": {
+    "speed": "data-speed per layer (e.g. bg 0.15, fg -0.25)",
+    "ease": "linear (tied to scroll progress)",
+    "range": "translate = (progress-0.5) * speed * frameHeight"
+  },
+  "a11y": "prefers-reduced-motion: no parallax, layers stay put.",
+  "createdAt": "2026-06-14"
+}

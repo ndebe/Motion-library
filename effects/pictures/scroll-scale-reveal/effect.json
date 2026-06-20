@@ -1,0 +1,19 @@
+{
+  "id": "scroll-scale-reveal",
+  "title": "Scroll scale reveal (clip + zoom on enter)",
+  "category": "pictures",
+  "target": ["image", "section"],
+  "trigger": ["scroll"],
+  "type": ["reveal", "parallax"],
+  "tags": ["clip-path", "scale", "scroll-progress", "scrub", "inset", "expo-out"],
+  "description": "The landonorris.com media entrance: as a block scrolls up into view its clip-path inset opens from a narrow slit to full frame while the inner image eases down from an overscale, so the picture seems to 'unmask' and settle. Scrubbed to scroll progress (not a one-shot) so it tracks the scrollbar.",
+  "source": { "name": "landonorris.com", "verified": false },
+  "params": {
+    "clip": "inset(18% 8% round 8px) -> inset(0% 0% round 8px)",
+    "scale": "1.25 -> 1.0 on the inner image",
+    "ease": "applied as eased progress (expo-out feel)",
+    "range": "bottom 90% -> center"
+  },
+  "a11y": "prefers-reduced-motion: fully revealed, no clip/scale.",
+  "createdAt": "2026-06-14"
+}

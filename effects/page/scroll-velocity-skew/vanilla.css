@@ -1,0 +1,18 @@
+/* Scroll velocity skew — vanilla CSS.
+   Apply .vskew to the elements that should lean with scroll momentum
+   (e.g. each media block, or a content wrapper). JS writes two props:
+     --sk  : skew angle in deg
+     --scl : a small scaleY hint (number, ~1.0 .. 1.05)
+   Transform-origin centered so the lean reads as a stretch, not a shift. */
+
+.vskew{
+  --sk:0deg;
+  --scl:1;
+  transform: skewY(var(--sk)) scaleY(var(--scl));
+  transform-origin:50% 50%;
+  will-change:transform;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .vskew{ transform:none !important; }
+}

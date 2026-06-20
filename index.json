@@ -169,6 +169,54 @@
     ]
   },
   {
+    "id": "scroll-velocity-skew",
+    "title": "Scroll velocity skew (momentum lean)",
+    "category": "page",
+    "target": [
+      "page",
+      "section",
+      "image"
+    ],
+    "trigger": [
+      "scroll"
+    ],
+    "type": [
+      "smooth-scroll",
+      "parallax"
+    ],
+    "tags": [
+      "velocity",
+      "skew",
+      "scale",
+      "inertia",
+      "lerp",
+      "raf",
+      "momentum"
+    ],
+    "description": "The momentum cue paired with Lenis-style smooth scroll on landonorris.com: content skews and stretches a touch in the direction of travel based on scroll velocity, then springs back to flat when motion stops. Velocity is smoothed with a lerp so it feels weighted, not jittery. Great layered over the smooth-scroll effect.",
+    "source": {
+      "name": "landonorris.com (paired with Lenis-style smooth scroll)",
+      "verified": false
+    },
+    "params": {
+      "skewMax": "~6deg clamp",
+      "smoothing": "velocity lerp 0.1",
+      "map": "skewY = clamp(velocity * 0.35, -6, 6); scaleY hint via |velocity|"
+    },
+    "a11y": "prefers-reduced-motion: no skew/scale, content stays flat.",
+    "createdAt": "2026-06-14",
+    "path": "effects/page/scroll-velocity-skew",
+    "demo": "effects/page/scroll-velocity-skew/demo.html",
+    "stacks": [
+      "vanilla"
+    ],
+    "files": [
+      "demo.html",
+      "vanilla.css",
+      "vanilla.js"
+    ]
+  },
+  {
     "id": "smooth-scroll",
     "title": "Smooth / inertia scroll (the Lenis feel)",
     "category": "page",
@@ -257,6 +305,51 @@
     ]
   },
   {
+    "id": "scroll-parallax",
+    "title": "Scroll parallax (layered media depth)",
+    "category": "pictures",
+    "target": [
+      "image",
+      "section"
+    ],
+    "trigger": [
+      "scroll"
+    ],
+    "type": [
+      "parallax"
+    ],
+    "tags": [
+      "parallax",
+      "depth",
+      "translate",
+      "scroll-progress",
+      "data-speed",
+      "raf"
+    ],
+    "description": "The landonorris.com depth move: full-bleed media sits in a fixed-aspect frame and its inner image (plus foreground/caption layers) translate at different speeds as the frame crosses the viewport, so foreground lags and background drifts. Speed per layer via data-speed; driven by a single rAF loop reading each frame's progress.",
+    "source": {
+      "name": "landonorris.com",
+      "verified": false
+    },
+    "params": {
+      "speed": "data-speed per layer (e.g. bg 0.15, fg -0.25)",
+      "ease": "linear (tied to scroll progress)",
+      "range": "translate = (progress-0.5) * speed * frameHeight"
+    },
+    "a11y": "prefers-reduced-motion: no parallax, layers stay put.",
+    "createdAt": "2026-06-14",
+    "path": "effects/pictures/scroll-parallax",
+    "demo": "effects/pictures/scroll-parallax/demo.html",
+    "stacks": [
+      "vanilla"
+    ],
+    "files": [
+      "demo.html",
+      "vanilla.css",
+      "vanilla.js"
+    ]
+  },
+  {
     "id": "scroll-reveal",
     "title": "Scroll reveal (fade · rise · skew · 3D tilt · blur)",
     "category": "pictures",
@@ -312,6 +405,98 @@
     "files": [
       "demo.html",
       "gsap.js",
+      "vanilla.css",
+      "vanilla.js"
+    ]
+  },
+  {
+    "id": "scroll-scale-reveal",
+    "title": "Scroll scale reveal (clip + zoom on enter)",
+    "category": "pictures",
+    "target": [
+      "image",
+      "section"
+    ],
+    "trigger": [
+      "scroll"
+    ],
+    "type": [
+      "reveal",
+      "parallax"
+    ],
+    "tags": [
+      "clip-path",
+      "scale",
+      "scroll-progress",
+      "scrub",
+      "inset",
+      "expo-out"
+    ],
+    "description": "The landonorris.com media entrance: as a block scrolls up into view its clip-path inset opens from a narrow slit to full frame while the inner image eases down from an overscale, so the picture seems to 'unmask' and settle. Scrubbed to scroll progress (not a one-shot) so it tracks the scrollbar.",
+    "source": {
+      "name": "landonorris.com",
+      "verified": false
+    },
+    "params": {
+      "clip": "inset(18% 8% round 8px) -> inset(0% 0% round 8px)",
+      "scale": "1.25 -> 1.0 on the inner image",
+      "ease": "applied as eased progress (expo-out feel)",
+      "range": "bottom 90% -> center"
+    },
+    "a11y": "prefers-reduced-motion: fully revealed, no clip/scale.",
+    "createdAt": "2026-06-14",
+    "path": "effects/pictures/scroll-scale-reveal",
+    "demo": "effects/pictures/scroll-scale-reveal/demo.html",
+    "stacks": [
+      "vanilla"
+    ],
+    "files": [
+      "demo.html",
+      "vanilla.css",
+      "vanilla.js"
+    ]
+  },
+  {
+    "id": "scroll-pin",
+    "title": "Pinned scroll section (sticky + horizontal track)",
+    "category": "sections",
+    "target": [
+      "section"
+    ],
+    "trigger": [
+      "scroll"
+    ],
+    "type": [
+      "parallax",
+      "state-change"
+    ],
+    "tags": [
+      "pin",
+      "sticky",
+      "horizontal-scroll",
+      "scroll-progress",
+      "scrub",
+      "chapters"
+    ],
+    "description": "The landonorris.com chapter move: a section pins to the viewport (position:sticky) while a tall outer track scrolls past, and that scroll distance is mapped to a horizontal translate of an inner row — so vertical scrolling scrubs through panels left-to-right. Progress also drives a thin progress bar. CSS sticky does the pin; JS only maps progress to transform.",
+    "source": {
+      "name": "landonorris.com",
+      "verified": false
+    },
+    "params": {
+      "pinHeight": "outer track = (panels) * 100vh",
+      "ease": "linear scrub (tied to scroll)",
+      "travel": "x = -progress * (trackWidth - viewportWidth)"
+    },
+    "a11y": "prefers-reduced-motion: track unpins and panels stack vertically (native scroll).",
+    "createdAt": "2026-06-14",
+    "path": "effects/sections/scroll-pin",
+    "demo": "effects/sections/scroll-pin/demo.html",
+    "stacks": [
+      "vanilla"
+    ],
+    "files": [
+      "demo.html",
       "vanilla.css",
       "vanilla.js"
     ]

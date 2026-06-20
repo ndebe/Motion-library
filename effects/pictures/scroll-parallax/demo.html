@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>scroll-parallax demo</title>
+<link rel="stylesheet" href="vanilla.css" />
+<style>
+  body{ margin:0; background:#0d0d0d; color:#8a8a82; font-family:ui-monospace,monospace; }
+  .wrap{ padding:18px; }
+  .spacer{ height:46vh; display:grid; place-items:center; font-size:11px; letter-spacing:.08em; }
+  /* gradient stand-ins for media (no external assets) */
+  .bg-a{ background:
+      radial-gradient(120% 90% at 30% 20%, #ff4d2e 0%, #b3260f 38%, #15110f 80%); }
+  .bg-b{ background:
+      radial-gradient(120% 90% at 70% 80%, #3a6df0 0%, #16245e 45%, #0c0e16 82%); }
+  .cap{ font-size:11px; padding:10px 2px 0; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="spacer">↓ scroll — foreground lags, background drifts ↓</div>
+
+    <div class="px-frame">
+      <div class="px-layer bg-a" data-speed="0.20"></div>
+      <div class="px-layer px-fg" data-speed="-0.10">LAP&nbsp;01</div>
+    </div>
+    <div class="cap">bg data-speed 0.20 · fg data-speed −0.10</div>
+
+    <div class="spacer">keep going</div>
+
+    <div class="px-frame">
+      <div class="px-layer bg-b" data-speed="0.28"></div>
+      <div class="px-layer px-fg" data-speed="-0.18">LAP&nbsp;02</div>
+    </div>
+    <div class="cap">bg data-speed 0.28 · fg data-speed −0.18</div>
+
+    <div class="spacer">end</div>
+  </div>
+  <script src="vanilla.js"></script>
+</body>
+</html>

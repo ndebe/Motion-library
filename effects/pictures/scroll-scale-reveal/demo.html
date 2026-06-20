@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>scroll-scale-reveal demo</title>
+<link rel="stylesheet" href="vanilla.css" />
+<style>
+  body{ margin:0; background:#0d0d0d; color:#8a8a82; font-family:ui-monospace,monospace; }
+  .wrap{ padding:18px; max-width:760px; margin:0 auto; }
+  .spacer{ height:42vh; display:grid; place-items:center; font-size:11px; letter-spacing:.08em; }
+  .ssr{ margin-bottom:18px; }
+  /* gradient stand-ins (no external assets) */
+  .g1{ background-image:radial-gradient(120% 100% at 25% 15%, #ff4d2e, #6a160a 55%, #140f0d); }
+  .g2{ background-image:radial-gradient(120% 100% at 75% 20%, #3a6df0, #15245c 55%, #0b0e16); }
+  .cap{ font-size:11px; margin:-6px 0 26px; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="spacer">↓ scroll — each frame unmasks and the image settles ↓</div>
+
+    <figure class="ssr"><div class="ssr-img g1"></div></figure>
+    <div class="cap">clip inset 18%/8% → 0 · image scale 1.25 → 1.0</div>
+
+    <figure class="ssr"><div class="ssr-img g2"></div></figure>
+    <div class="cap">scrubbed to scroll — reverses as you scroll back up</div>
+
+    <div class="spacer">end</div>
+  </div>
+  <script src="vanilla.js"></script>
+</body>
+</html>
