@@ -1,0 +1,11 @@
+/* Directional underline wipe — CSS only. Add .ul-link to any link. */
+.ul-link{ position:relative; text-decoration:none; color:inherit; }
+.ul-link::after{
+  content:""; position:absolute; left:0; bottom:-3px; height:1px; width:100%;
+  background:currentColor; transform:scaleX(0); transform-origin:right;
+  transition: transform .45s cubic-bezier(.16,1,.3,1);
+}
+.ul-link:hover::after,
+.ul-link:focus-visible::after{ transform:scaleX(1); transform-origin:left; }
+
+@media (prefers-reduced-motion: reduce){ .ul-link::after{ transition:none; } }

@@ -1,0 +1,11 @@
+/* Scroll reveal — vanilla CSS (resting/hidden state).
+   JS animates from this to natural. Apply .sr-reveal; pick a from-state with
+   data-variant = default | rise | tilt | blur | skew. */
+
+.sr-reveal{ opacity:0; will-change:transform,opacity,filter; }
+/* 3D depth so rotateX/rotateY read; put perspective on the scroll container/body */
+.sr-scene{ perspective:1000px; }
+
+@media (prefers-reduced-motion: reduce){
+  .sr-reveal{ opacity:1 !important; transform:none !important; filter:none !important; }
+}

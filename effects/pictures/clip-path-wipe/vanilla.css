@@ -1,0 +1,18 @@
+/* Clip-path wipe — vanilla CSS (resting/hidden state only).
+   The JS animates the clip-path open. CSS just hides it first so there's
+   no flash before JS runs, and supplies the reduced-motion fallback.
+   Apply .cw-reveal to any element; set direction with data-dir. */
+
+.cw-reveal{
+  /* default hidden = collapsed on the LEFT edge (left -> right wipe) */
+  clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+  will-change: clip-path;
+}
+.cw-reveal[data-dir="right"]{ clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%); } /* right -> left */
+.cw-reveal[data-dir="down"] { clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%); }          /* top  -> bottom */
+.cw-reveal[data-dir="up"]   { clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%); }  /* bottom -> top */
+
+/* Accessibility: respect reduced motion — reveal instantly, no wipe. */
+@media (prefers-reduced-motion: reduce){
+  .cw-reveal{ clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%) !important; }
+}

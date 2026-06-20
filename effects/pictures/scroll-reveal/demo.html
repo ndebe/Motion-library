@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>scroll-reveal demo</title>
+<link rel="stylesheet" href="vanilla.css" />
+<style>
+  body{ margin:0; background:#0d0d0d; font-family:ui-monospace,monospace; color:#8a8a82; }
+  .stage{ display:grid; grid-template-columns:1fr 1fr; gap:14px; padding:18px; }
+  .media{ aspect-ratio:16/10; border-radius:6px; overflow:hidden; background:#181818; }
+  .media img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .bar{ padding:12px 18px; }
+  button{ font:inherit; font-size:12px; letter-spacing:.06em; color:#0d0d0d; background:#f4f1ea;
+    border:0; border-radius:100px; padding:9px 16px; cursor:pointer; }
+  button:hover{ background:#ff4d2e; color:#fff; }
+  .cap{ font-size:11px; padding:0 18px 14px; }
+</style>
+</head>
+<body class="sr-scene">
+  <div class="stage">
+    <div class="media"><img class="sr-reveal" data-variant="default" src="https://picsum.photos/seed/srA/800/500" alt=""></div>
+    <div class="media"><img class="sr-reveal" data-variant="tilt"    src="https://picsum.photos/seed/srB/800/500" alt=""></div>
+    <div class="media"><img class="sr-reveal" data-variant="blur"    src="https://picsum.photos/seed/srC/800/500" alt=""></div>
+    <div class="media"><img class="sr-reveal" data-variant="skew"    src="https://picsum.photos/seed/srD/800/500" alt=""></div>
+  </div>
+  <div class="cap">default · tilt · blur · skew — slow Power-eased reveals</div>
+  <div class="bar"><button onclick="srReplayAll()">▶ Replay</button></div>
+
+  <script src="vanilla.js"></script>
+  <script>addEventListener('load', () => setTimeout(() => window.srReplayAll && srReplayAll(), 300));</script>
+</body>
+</html>

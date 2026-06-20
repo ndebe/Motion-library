@@ -1,0 +1,20 @@
+{
+  "id": "clip-path-wipe",
+  "title": "Clip-path wipe (image loads in from an edge)",
+  "category": "pictures",
+  "target": ["image", "section"],
+  "trigger": ["scroll", "load"],
+  "type": ["wipe", "reveal"],
+  "tags": ["clip-path", "mask", "power-ease", "directional"],
+  "description": "The element stays fully opaque while a clip-path polygon grows from one edge (left, right, top, or bottom). The 'pictures that load from left to right' effect. No inner-image scale — a pure mask wipe.",
+  "source": { "name": "vanschneider.com", "verified": true },
+  "params": {
+    "duration": "1.6s",
+    "ease": "power2.out  (cubic-bezier(0.215,0.61,0.355,1))",
+    "from_left": "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
+    "from_top": "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+    "to": "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)"
+  },
+  "a11y": "prefers-reduced-motion: shows instantly, no wipe.",
+  "createdAt": "2026-06-14"
+}

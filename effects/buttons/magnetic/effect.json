@@ -1,0 +1,14 @@
+{
+  "id": "magnetic",
+  "title": "Magnetic button",
+  "category": "buttons",
+  "target": ["button", "link"],
+  "trigger": ["hover"],
+  "type": ["magnetic"],
+  "tags": ["pointer", "translate", "spring", "depth"],
+  "description": "On hover the element translates a fraction (~0.35) of the cursor offset toward the pointer; an inner label lags further for depth. Springs home on leave.",
+  "source": { "name": "common portfolio pattern (not on vanschneider.com homepage)", "verified": false },
+  "params": { "strength": 0.35, "labelStrength": 0.55, "return": "transform .6s cubic-bezier(.16,1,.3,1)" },
+  "a11y": "Pointer-only enhancement; ignored on touch / coarse pointers.",
+  "createdAt": "2026-06-14"
+}
