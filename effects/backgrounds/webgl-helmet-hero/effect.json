@@ -1,0 +1,14 @@
+{
+  "id": "webgl-helmet-hero",
+  "title": "3D racing-helmet hero",
+  "category": "backgrounds",
+  "target": ["section", "page"],
+  "trigger": ["load", "loop"],
+  "type": ["loop", "parallax"],
+  "tags": ["webgl", "three.js", "3d", "helmet", "mouse-parallax", "fresnel", "hero", "procedural"],
+  "description": "An original racing-style helmet built procedurally in Three.js — domed shell, chin bar, glossy fresnel-lit visor and brow vent — slowly auto-rotating and tilting toward the cursor over a soft gradient. Recreates the feel of a hero product showpiece using only generated geometry, no external 3D model.",
+  "source": { "name": "original procedural model; feel inspired by landonorris.com hero (Off+Brand)", "verified": false },
+  "params": { "autoSpin": 0.15, "parallax": 0.35, "metalness": 0.6, "roughness": 0.35 },
+  "a11y": "Honors prefers-reduced-motion: stops the auto-spin/parallax loop and renders a single static three-quarter view.",
+  "createdAt": "2026-06-20"
+}

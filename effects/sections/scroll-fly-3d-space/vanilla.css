@@ -1,0 +1,114 @@
+/* Scroll-to-fly 3D project space — recreated from tolanidaniel.me (SPACE view).
+   A fixed viewport with CSS perspective; a preserve-3d world holds absolutely
+   centered cards + star dots that JS positions with translate3d each frame. */
+
+.fly-viewport{
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  perspective: 1000px;           /* JS narrows this with velocity for the warp feel */
+  perspective-origin: 50% 50%;
+  background: #0d0d0f;
+}
+
+.fly-world{
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;  /* cards + stars live in one shared 3D space */
+  will-change: transform;        /* mouse tilt: rotateX/rotateY */
+}
+
+.fly-card{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(440px, 78vw);
+  will-change: transform, opacity;
+  /* base transform is set by JS:
+     translate(-50%,-50%) translate3d(x, y, z) rotateZ(r) */
+  border: 1px solid #2a2a2e;
+  background: #131316;
+  color: #e5eaf4;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  backface-visibility: hidden;
+}
+
+.fly-card-head{
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  letter-spacing: .08em;
+  color: #5a5b5e;
+  padding: 2px 2px 8px;
+}
+
+.fly-card-head .dot{
+  width: 8px; height: 8px;
+  background: #f72f2f;           /* signature red square */
+}
+
+.fly-card-media{
+  aspect-ratio: 16 / 10;
+  display: grid;
+  place-items: center;
+  font-size: 44px;
+  font-weight: 700;
+  color: #2e2e33;
+}
+
+.fly-card-foot{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 10px 2px 2px;
+}
+
+.fly-card-title{
+  margin: 0;
+  font-size: 18px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.fly-card-cta{
+  font-size: 10px;
+  letter-spacing: .08em;
+  color: #5a5b5e;
+}
+
+.fly-star{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 3px;
+  height: 3px;
+  will-change: transform, opacity;
+  /* JS: translate(-50%,-50%) translate3d(x,y,z) scale3d(1,1,stretch) —
+     the z-scale stretches dots into streaks at speed */
+}
+
+.fly-hud{
+  position: absolute;
+  left: 0; right: 0; bottom: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  font: 11px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: .1em;
+  color: #5a5b5e;
+  pointer-events: none;
+}
+.fly-hud b{ color: #e5eaf4; font-weight: 600; }
+
+/* Reduced motion: no flight. JS also bails; this is the CSS half of the fallback:
+   the world flattens and cards flow as a normal scrollable grid. */
+@media (prefers-reduced-motion: reduce){
+  .fly-viewport{ position: static; overflow: visible; perspective: none; }
+  .fly-world{ position: static; transform: none !important; display: grid; gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); padding: 16px; }
+  .fly-card{ position: static; transform: none !important; opacity: 1 !important; width: auto; }
+  .fly-star, .fly-hud{ display: none; }
+}

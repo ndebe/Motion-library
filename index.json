@@ -1,5 +1,103 @@
 [
   {
+    "id": "webgl-helmet-hero",
+    "title": "3D racing-helmet hero",
+    "category": "backgrounds",
+    "target": [
+      "section",
+      "page"
+    ],
+    "trigger": [
+      "load",
+      "loop"
+    ],
+    "type": [
+      "loop",
+      "parallax"
+    ],
+    "tags": [
+      "webgl",
+      "three.js",
+      "3d",
+      "helmet",
+      "mouse-parallax",
+      "fresnel",
+      "hero",
+      "procedural"
+    ],
+    "description": "An original racing-style helmet built procedurally in Three.js — domed shell, chin bar, glossy fresnel-lit visor and brow vent — slowly auto-rotating and tilting toward the cursor over a soft gradient. Recreates the feel of a hero product showpiece using only generated geometry, no external 3D model.",
+    "source": {
+      "name": "original procedural model; feel inspired by landonorris.com hero (Off+Brand)",
+      "verified": false
+    },
+    "params": {
+      "autoSpin": 0.15,
+      "parallax": 0.35,
+      "metalness": 0.6,
+      "roughness": 0.35
+    },
+    "a11y": "Honors prefers-reduced-motion: stops the auto-spin/parallax loop and renders a single static three-quarter view.",
+    "createdAt": "2026-06-20",
+    "path": "effects/backgrounds/webgl-helmet-hero",
+    "demo": "effects/backgrounds/webgl-helmet-hero/demo.html",
+    "stacks": [
+      "vanilla"
+    ],
+    "files": [
+      "demo.html",
+      "vanilla.css",
+      "vanilla.js"
+    ]
+  },
+  {
+    "id": "webgl-liquid-hero",
+    "title": "WebGL liquid hero background",
+    "category": "backgrounds",
+    "target": [
+      "section",
+      "page"
+    ],
+    "trigger": [
+      "load",
+      "loop"
+    ],
+    "type": [
+      "loop",
+      "parallax"
+    ],
+    "tags": [
+      "webgl",
+      "shader",
+      "fbm",
+      "domain-warp",
+      "noise",
+      "mouse-parallax",
+      "fullscreen"
+    ],
+    "description": "A full-screen WebGL2 fragment shader that animates soft, drifting organic blobs (domain-warped fractal noise) with subtle mouse parallax. Captures the technique behind a shader-driven hero canvas without any 3D model or external library.",
+    "source": {
+      "name": "technique recreation inspired by landonorris.com hero (Off+Brand)",
+      "verified": false
+    },
+    "params": {
+      "speed": 0.05,
+      "octaves": 5,
+      "parallax": 0.4
+    },
+    "a11y": "Honors prefers-reduced-motion: renders a single still frame and skips the animation loop.",
+    "createdAt": "2026-06-20",
+    "path": "effects/backgrounds/webgl-liquid-hero",
+    "demo": "effects/backgrounds/webgl-liquid-hero/demo.html",
+    "stacks": [
+      "vanilla"
+    ],
+    "files": [
+      "demo.html",
+      "vanilla.css",
+      "vanilla.js"
+    ]
+  },
+  {
     "id": "magnetic",
     "title": "Magnetic button",
     "category": "buttons",
@@ -256,6 +354,55 @@
     ]
   },
   {
+    "id": "before-after-wipe",
+    "title": "Before / after image wipe",
+    "category": "pictures",
+    "target": [
+      "image"
+    ],
+    "trigger": [
+      "hover",
+      "load"
+    ],
+    "type": [
+      "reveal",
+      "wipe",
+      "state-change"
+    ],
+    "tags": [
+      "image-compare",
+      "clip-path",
+      "slider",
+      "drag",
+      "before-after",
+      "wipe"
+    ],
+    "description": "Two images stacked on top of each other; drag the divider (or move the cursor) to wipe one over the other. A clip-path reveal with a draggable handle, a one-time intro sweep, and keyboard support. Perfect for day/night, edit/original, or retouch comparisons.",
+    "source": {
+      "name": "common image-compare pattern (technique recreation)",
+      "verified": false
+    },
+    "params": {
+      "start": "50%",
+      "introSweep": "50→80→50 over 1.1s",
+      "handle": "draggable"
+    },
+    "a11y": "Focusable slider role with ArrowLeft/Right control; intro sweep is skipped under prefers-reduced-motion (dragging still works).",
+    "createdAt": "2026-06-20",
+    "path": "effects/pictures/before-after-wipe",
+    "demo": "effects/pictures/before-after-wipe/demo.html",
+    "stacks": [
+      "vanilla"
+    ],
+    "files": [
+      "demo.html",
+      "sample-after.svg",
+      "sample-before.svg",
+      "vanilla.css",
+      "vanilla.js"
+    ]
+  },
+  {
     "id": "clip-path-wipe",
     "title": "Clip-path wipe (image loads in from an edge)",
     "category": "pictures",
@@ -447,6 +594,65 @@
     "createdAt": "2026-06-14",
     "path": "effects/pictures/scroll-scale-reveal",
     "demo": "effects/pictures/scroll-scale-reveal/demo.html",
+    "stacks": [
+      "vanilla"
+    ],
+    "files": [
+      "demo.html",
+      "vanilla.css",
+      "vanilla.js"
+    ]
+  },
+  {
+    "id": "scroll-fly-3d-space",
+    "title": "Scroll-to-fly 3D project space (camera flythrough)",
+    "category": "sections",
+    "target": [
+      "section",
+      "list",
+      "image"
+    ],
+    "trigger": [
+      "scroll",
+      "hover"
+    ],
+    "type": [
+      "parallax",
+      "smooth-scroll",
+      "hover"
+    ],
+    "tags": [
+      "3d",
+      "perspective",
+      "translate3d",
+      "virtual-scroll",
+      "lerp",
+      "velocity",
+      "starfield",
+      "z-stretch",
+      "infinite-loop",
+      "hud",
+      "raf"
+    ],
+    "description": "Scroll flies a camera through project cards scattered along a 3-turn spiral in CSS 3D space. Depth wraps infinitely, cards fade in from the deep and out past the lens, a starfield stretches on the z-axis with velocity for warp streaks, the whole world tilts with the mouse, and perspective tightens as you accelerate. A HUD reads out velocity and camera z.",
+    "source": {
+      "name": "tolanidaniel.me (SPACE view, PRJT.WORK)",
+      "verified": true
+    },
+    "params": {
+      "zGap": 800,
+      "camSpeed": 2.4,
+      "lerp": 0.08,
+      "scatter": "angle = i/count * PI*6; x = cos*26vw, y = sin*24vh; rotZ = ±7deg random",
+      "fade": "in over z -3000→-2000, out over z 100→500, wrap at count*zGap",
+      "warp": "perspective = 1000 - min(|vel|*6, 600); star scale3d(1,1, 1+|vel|*0.12 clamped to 10)",
+      "tilt": "rotateX(mouseY*5 - clamp(vel,±30)*0.2) rotateY(mouseX*5)",
+      "hover": "rect hit-test +22px margin, nearest card lerps +50px toward camera at 0.12"
+    },
+    "a11y": "prefers-reduced-motion: no flight — wheel hijack, starfield and tilt are skipped and cards render as a static scrollable grid.",
+    "createdAt": "2026-06-19",
+    "path": "effects/sections/scroll-fly-3d-space",
+    "demo": "effects/sections/scroll-fly-3d-space/demo.html",
     "stacks": [
       "vanilla"
     ],

@@ -1,0 +1,14 @@
+{
+  "id": "webgl-liquid-hero",
+  "title": "WebGL liquid hero background",
+  "category": "backgrounds",
+  "target": ["section", "page"],
+  "trigger": ["load", "loop"],
+  "type": ["loop", "parallax"],
+  "tags": ["webgl", "shader", "fbm", "domain-warp", "noise", "mouse-parallax", "fullscreen"],
+  "description": "A full-screen WebGL2 fragment shader that animates soft, drifting organic blobs (domain-warped fractal noise) with subtle mouse parallax. Captures the technique behind a shader-driven hero canvas without any 3D model or external library.",
+  "source": { "name": "technique recreation inspired by landonorris.com hero (Off+Brand)", "verified": false },
+  "params": { "speed": 0.05, "octaves": 5, "parallax": 0.4 },
+  "a11y": "Honors prefers-reduced-motion: renders a single still frame and skips the animation loop.",
+  "createdAt": "2026-06-20"
+}

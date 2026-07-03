@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>webgl-liquid-hero demo</title>
+<link rel="stylesheet" href="vanilla.css" />
+<style>
+  html, body { margin: 0; height: 100%; }
+  .liquid-hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 7vw;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #14130f;
+  }
+  .eyebrow {
+    font-family: ui-monospace, monospace;
+    font-size: 12px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    opacity: .55;
+    margin: 0 0 14px;
+  }
+  h1 {
+    margin: 0;
+    font-size: clamp(40px, 9vw, 120px);
+    line-height: .92;
+    letter-spacing: -.03em;
+    font-weight: 800;
+  }
+  p.lead { margin: 18px 0 0; max-width: 30ch; font-size: 15px; opacity: .7; }
+  .hint {
+    position: absolute; bottom: 18px; left: 7vw; z-index: 2;
+    font-family: ui-monospace, monospace; font-size: 11px; opacity: .5;
+  }
+</style>
+</head>
+<body>
+  <div class="liquid-hero">
+    <canvas data-liquid-hero data-parallax="0.5" data-speed="0.05"></canvas>
+    <p class="eyebrow">Background · WebGL2 shader</p>
+    <h1>LIQUID<br>HERO</h1>
+    <p class="lead">Domain-warped fractal noise, drifting on a loop. Move your cursor for the parallax.</p>
+    <div class="hint">move the cursor →</div>
+  </div>
+  <script src="vanilla.js"></script>
+</body>
+</html>

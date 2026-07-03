@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>scroll-fly-3d-space demo</title>
+<link rel="stylesheet" href="vanilla.css" />
+<style>
+  html, body{ margin:0; height:100%; background:#0d0d0f; overflow:hidden; }
+  .stage{ position:fixed; inset:0; }
+  .cap{ position:absolute; top:16px; left:0; right:0; text-align:center; z-index:2;
+    font:11px/1 ui-monospace,monospace; letter-spacing:.1em; color:#5a5b5e; pointer-events:none; }
+  .m1{ background:linear-gradient(135deg,#241310,#ff4d2e); }
+  .m2{ background:linear-gradient(135deg,#10141f,#3a6df0); }
+  .m3{ background:linear-gradient(135deg,#101a14,#27c08a); }
+  .m4{ background:linear-gradient(135deg,#1f1026,#a54df0); }
+  .m5{ background:linear-gradient(135deg,#26200f,#f0c53a); }
+  @media (prefers-reduced-motion: reduce){
+    html, body{ overflow:auto; }
+    .stage{ position:static; }
+  }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="cap">↓ SCROLL TO FLY — MOVE THE MOUSE TO TILT — HOVER A CARD ↓</div>
+    <div class="fly-viewport">
+      <div class="fly-world" id="world"></div>
+    </div>
+    <div class="fly-hud">
+      <span>VEL <b class="fly-vel">0.00</b></span>
+      <span>Z <b class="fly-z">0</b></span>
+      <span>10 PROJECTS — SCROLL TO FLY</span>
+    </div>
+  </div>
+
+  <script>
+    // build 10 placeholder project cards before the effect boots
+    (() => {
+      const world = document.getElementById('world');
+      const names = ['NOVA','OPSIN','KABLE','FARA','HALIDE','ORRERY','PLUME','VANTA','RELAY','MONO'];
+      for (let i = 0; i < 10; i++) {
+        const a = document.createElement('a');
+        a.className = 'fly-card';
+        a.href = '#';
+        a.innerHTML =
+          `<div class="fly-card-head"><span>${String(i + 1).padStart(2, '0')} — 202${4 + (i % 3)}</span><span class="dot"></span></div>
+           <div class="fly-card-media m${(i % 5) + 1}">${String(i + 1).padStart(2, '0')}</div>
+           <div class="fly-card-foot"><h2 class="fly-card-title">${names[i]}</h2><span class="fly-card-cta">VIEW CASE STUDY ↗</span></div>`;
+        world.appendChild(a);
+      }
+    })();
+  </script>
+  <script src="vanilla.js"></script>
+</body>
+</html>

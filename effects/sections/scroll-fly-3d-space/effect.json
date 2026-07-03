@@ -1,0 +1,23 @@
+{
+  "id": "scroll-fly-3d-space",
+  "title": "Scroll-to-fly 3D project space (camera flythrough)",
+  "category": "sections",
+  "target": ["section", "list", "image"],
+  "trigger": ["scroll", "hover"],
+  "type": ["parallax", "smooth-scroll", "hover"],
+  "tags": ["3d", "perspective", "translate3d", "virtual-scroll", "lerp", "velocity", "starfield", "z-stretch", "infinite-loop", "hud", "raf"],
+  "description": "Scroll flies a camera through project cards scattered along a 3-turn spiral in CSS 3D space. Depth wraps infinitely, cards fade in from the deep and out past the lens, a starfield stretches on the z-axis with velocity for warp streaks, the whole world tilts with the mouse, and perspective tightens as you accelerate. A HUD reads out velocity and camera z.",
+  "source": { "name": "tolanidaniel.me (SPACE view, PRJT.WORK)", "verified": true },
+  "params": {
+    "zGap": 800,
+    "camSpeed": 2.4,
+    "lerp": 0.08,
+    "scatter": "angle = i/count * PI*6; x = cos*26vw, y = sin*24vh; rotZ = ±7deg random",
+    "fade": "in over z -3000→-2000, out over z 100→500, wrap at count*zGap",
+    "warp": "perspective = 1000 - min(|vel|*6, 600); star scale3d(1,1, 1+|vel|*0.12 clamped to 10)",
+    "tilt": "rotateX(mouseY*5 - clamp(vel,±30)*0.2) rotateY(mouseX*5)",
+    "hover": "rect hit-test +22px margin, nearest card lerps +50px toward camera at 0.12"
+  },
+  "a11y": "prefers-reduced-motion: no flight — wheel hijack, starfield and tilt are skipped and cards render as a static scrollable grid.",
+  "createdAt": "2026-06-19"
+}

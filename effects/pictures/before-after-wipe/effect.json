@@ -1,0 +1,14 @@
+{
+  "id": "before-after-wipe",
+  "title": "Before / after image wipe",
+  "category": "pictures",
+  "target": ["image"],
+  "trigger": ["hover", "load"],
+  "type": ["reveal", "wipe", "state-change"],
+  "tags": ["image-compare", "clip-path", "slider", "drag", "before-after", "wipe"],
+  "description": "Two images stacked on top of each other; drag the divider (or move the cursor) to wipe one over the other. A clip-path reveal with a draggable handle, a one-time intro sweep, and keyboard support. Perfect for day/night, edit/original, or retouch comparisons.",
+  "source": { "name": "common image-compare pattern (technique recreation)", "verified": false },
+  "params": { "start": "50%", "introSweep": "50→80→50 over 1.1s", "handle": "draggable" },
+  "a11y": "Focusable slider role with ArrowLeft/Right control; intro sweep is skipped under prefers-reduced-motion (dragging still works).",
+  "createdAt": "2026-06-20"
+}
