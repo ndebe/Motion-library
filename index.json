@@ -1,55 +1,5 @@
 [
   {
-    "id": "webgl-helmet-hero",
-    "title": "3D racing-helmet hero",
-    "category": "backgrounds",
-    "target": [
-      "section",
-      "page"
-    ],
-    "trigger": [
-      "load",
-      "loop"
-    ],
-    "type": [
-      "loop",
-      "parallax"
-    ],
-    "tags": [
-      "webgl",
-      "three.js",
-      "3d",
-      "helmet",
-      "mouse-parallax",
-      "fresnel",
-      "hero",
-      "procedural"
-    ],
-    "description": "An original racing-style helmet built procedurally in Three.js — domed shell, chin bar, glossy fresnel-lit visor and brow vent — slowly auto-rotating and tilting toward the cursor over a soft gradient. Recreates the feel of a hero product showpiece using only generated geometry, no external 3D model.",
-    "source": {
-      "name": "original procedural model; feel inspired by landonorris.com hero (Off+Brand)",
-      "verified": false
-    },
-    "params": {
-      "autoSpin": 0.15,
-      "parallax": 0.35,
-      "metalness": 0.6,
-      "roughness": 0.35
-    },
-    "a11y": "Honors prefers-reduced-motion: stops the auto-spin/parallax loop and renders a single static three-quarter view.",
-    "createdAt": "2026-06-20",
-    "path": "effects/backgrounds/webgl-helmet-hero",
-    "demo": "effects/backgrounds/webgl-helmet-hero/demo.html",
-    "stacks": [
-      "vanilla"
-    ],
-    "files": [
-      "demo.html",
-      "vanilla.css",
-      "vanilla.js"
-    ]
-  },
-  {
     "id": "webgl-liquid-hero",
     "title": "WebGL liquid hero background",
     "category": "backgrounds",
@@ -350,55 +300,6 @@
     ],
     "files": [
       "demo.html",
-      "vanilla.js"
-    ]
-  },
-  {
-    "id": "before-after-wipe",
-    "title": "Before / after image wipe",
-    "category": "pictures",
-    "target": [
-      "image"
-    ],
-    "trigger": [
-      "hover",
-      "load"
-    ],
-    "type": [
-      "reveal",
-      "wipe",
-      "state-change"
-    ],
-    "tags": [
-      "image-compare",
-      "clip-path",
-      "slider",
-      "drag",
-      "before-after",
-      "wipe"
-    ],
-    "description": "Two images stacked on top of each other; drag the divider (or move the cursor) to wipe one over the other. A clip-path reveal with a draggable handle, a one-time intro sweep, and keyboard support. Perfect for day/night, edit/original, or retouch comparisons.",
-    "source": {
-      "name": "common image-compare pattern (technique recreation)",
-      "verified": false
-    },
-    "params": {
-      "start": "50%",
-      "introSweep": "50→80→50 over 1.1s",
-      "handle": "draggable"
-    },
-    "a11y": "Focusable slider role with ArrowLeft/Right control; intro sweep is skipped under prefers-reduced-motion (dragging still works).",
-    "createdAt": "2026-06-20",
-    "path": "effects/pictures/before-after-wipe",
-    "demo": "effects/pictures/before-after-wipe/demo.html",
-    "stacks": [
-      "vanilla"
-    ],
-    "files": [
-      "demo.html",
-      "sample-after.svg",
-      "sample-before.svg",
-      "vanilla.css",
       "vanilla.js"
     ]
   },
