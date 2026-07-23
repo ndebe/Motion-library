@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>springy-pill demo</title>
+<link rel="stylesheet" href="vanilla.css" />
+<style>
+  body{ margin:0; min-height:60vh; background:#0d0d0d; color:#8a8a82;
+    font-family:ui-monospace,monospace; display:grid; place-content:center; gap:20px; justify-items:center; }
+  .row{ display:flex; gap:18px; flex-wrap:wrap; justify-content:center; }
+  /* second button = the dark/accent variant, matching the site's two pill colors */
+  .pill-btn--accent{ color:#f9fcf4; }
+  .pill-btn--accent .pill-btn__fill{ background:#6f7ba9; }
+  .cap{ font-size:11px; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <a href="#" class="pill-btn">
+      <span class="pill-btn__fill" aria-hidden="true"></span>
+      <span class="pill-btn__label">Get Tickets</span>
+    </a>
+    <a href="#" class="pill-btn pill-btn--accent">
+      <span class="pill-btn__fill" aria-hidden="true"></span>
+      <span class="pill-btn__label">Watch Now</span>
+    </a>
+  </div>
+  <div class="cap">hover a button — the pill fill pops with a springy overshoot</div>
+</body>
+</html>

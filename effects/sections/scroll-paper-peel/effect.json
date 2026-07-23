@@ -1,0 +1,22 @@
+{
+  "id": "scroll-paper-peel",
+  "title": "Scroll paper peel (corner folds flat as you scroll)",
+  "category": "sections",
+  "target": ["section", "page"],
+  "trigger": ["scroll"],
+  "type": ["reveal", "wipe", "fold"],
+  "tags": ["paper", "peel", "page-turn", "clip-path", "reflection", "scroll-progress", "scrub", "diagonal"],
+  "description": "The trevornoah.com hero peel: a square 'page' folds its top-right corner over along a diagonal crease as you scroll. It is a FLAT fold, not a 3D rotation — the flap is the page content clipped to the corner triangle and reflected across the crease (matrix(0,1,1,0,0,0) mirror about the top-left origin, then translated so the crease endpoints stay pinned), so it reads as the mirrored underside of the paper. A second layer shows through the cut. Scrubbed to scroll position, so scrolling down folds and scrolling back up un-folds — the fold tracks scroll direction.",
+  "source": { "name": "trevornoah.com", "verified": true },
+  "params": {
+    "structure": ".peel_container / .unpeeled (front, clipped) / .peeled (mirrored underside) — recreated as .peel__front + .peel__flap",
+    "front_clip": "polygon(0 0, calc(100% - L) 0, 100% L, 100% 100%, 0 100%)  — removes the top-right triangle",
+    "flap_clip": "polygon(calc(100% - L) 0, 100% 0, 100% L)  — the removed triangle, clipped in local space",
+    "flap_transform": "translate(calc(100% - L), calc(L - 100%)) matrix(0,1,1,0,0,0)  — reflect across the diagonal crease, endpoints pinned",
+    "L": "calc(--p * 100%)  (page is square so % maps to a true 45deg crease)",
+    "progress": "--p 0..1 scrubbed from how far the sticky stage has scrolled through its own height, eased in-out",
+    "note": "The site's peeled layer is a flat matrix3d mirror with preserve-3d; the fold mechanism (clip + reflected back + diagonal crease) is verified from the live DOM. The exact scroll-to-progress curve is a clean reconstruction — the site drives it via Webflow IX2 which didn't expose per-scroll keyframes to scripting."
+  },
+  "a11y": "prefers-reduced-motion: no scrubbing — the page is shown flat and fully readable, the flap is hidden and the section collapses to normal flow.",
+  "createdAt": "2026-07-23"
+}

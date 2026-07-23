@@ -1,0 +1,50 @@
+/* Springy pill button — vanilla CSS (no JS needed).
+   Markup: <a class="pill-btn"><span class="pill-btn__fill"></span><span class="pill-btn__label">…</span></a>
+   The fill sits behind the label (z-index:-1, inset:0) and pops on hover with an
+   overshoot ease so it bounces past 1.0 before settling. */
+
+.pill-btn{
+  --pill-h: 3.5rem;                 /* button height → drives the full pill radius */
+  position: relative;               /* fill is absolutely positioned against this */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--pill-h);
+  padding: 0 2rem;
+  overflow: visible;                /* let the fill overshoot past the edges */
+  border-radius: calc(var(--pill-h) / 2);
+  text-decoration: none;
+  color: #0d0d0d;
+  font: inherit;
+  font-weight: 600;
+  isolation: isolate;               /* keep the -1 fill contained to this button */
+}
+
+.pill-btn__fill{
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: calc(var(--pill-h) / 2);
+  background: #f9fcf4;
+  transform: scale(1);
+  transform-origin: center;
+  /* the signature: overshoot spring — the >1 final control point (1.33) is the bounce */
+  transition: transform 0.45s cubic-bezier(0.17, 0.67, 0.3, 1.33);
+}
+
+.pill-btn:hover .pill-btn__fill,
+.pill-btn:focus-visible .pill-btn__fill{
+  transform: scale(1.06);
+}
+
+.pill-btn__label{
+  position: relative;               /* above the fill */
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce){
+  /* keep the affordance, drop the bounce: plain ease, no overshoot */
+  .pill-btn__fill{ transition: transform 0.2s ease; }
+  .pill-btn:hover .pill-btn__fill,
+  .pill-btn:focus-visible .pill-btn__fill{ transform: scale(1.03); }
+}

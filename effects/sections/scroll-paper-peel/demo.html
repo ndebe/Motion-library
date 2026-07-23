@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>scroll-paper-peel demo</title>
+<link rel="stylesheet" href="vanilla.css" />
+<style>
+  :root{ color-scheme: dark; }
+  body{ margin:0; background:#0d0d0d; color:#111;
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+  .hint{ position:fixed; z-index:10; left:50%; top:16px; transform:translateX(-50%);
+    color:#8a8a82; font-size:11px; letter-spacing:.04em; pointer-events:none; }
+
+  /* page face (front) and its mirror (flap) share this look */
+  .card{
+    position:absolute; inset:0; border-radius:inherit; overflow:hidden;
+    background:radial-gradient(120% 90% at 15% 12%, #fef4e6 0%, #f7ede0 45%, #efe2cf 100%);
+    display:flex; flex-direction:column; justify-content:space-between;
+    padding:26px 28px; box-sizing:border-box;
+  }
+  .card h2{ margin:0; font-size:clamp(22px,4.5vmin,40px); line-height:1.02; letter-spacing:-.02em; color:#1a1712; }
+  .card p{ margin:0; font-size:12px; color:#6b6154; max-width:24ch; }
+  .card .tag{ font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#a8402a; }
+
+  /* the layer revealed under the folded corner */
+  .peel__beneath{
+    overflow:hidden;
+    background:linear-gradient(135deg,#a8402a 0%,#c65a34 100%);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .peel__beneath span{ color:#fdeede; font-size:clamp(20px,4vmin,34px); letter-spacing:-.01em; transform:rotate(-8deg); }
+</style>
+</head>
+<body>
+  <div class="hint">scroll down to fold the corner · scroll up to un-fold</div>
+
+  <section class="peel">
+    <div class="peel__sticky">
+      <div class="peel__beneath"><span>the other side</span></div>
+
+      <div class="peel__paper">
+        <div class="peel__front">
+          <div class="card">
+            <div class="tag">chapter one</div>
+            <h2>Born<br>a Crime</h2>
+            <p>Scroll to peel the page &mdash; the corner folds flat and mirrored, just like paper.</p>
+          </div>
+        </div>
+
+        <div class="peel__flap">
+          <div class="card">
+            <div class="tag">chapter one</div>
+            <h2>Born<br>a Crime</h2>
+            <p>Scroll to peel the page &mdash; the corner folds flat and mirrored, just like paper.</p>
+          </div>
+          <div class="peel__flap-shade"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="vanilla.js"></script>
+</body>
+</html>

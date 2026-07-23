@@ -1,0 +1,105 @@
+/* Scroll paper peel — vanilla CSS.
+   A square "page" folds its top-right corner over along a diagonal crease as you
+   scroll. The fold is FLAT (like the real trevornoah.com peel): the flap is the
+   page content clipped to the corner triangle and REFLECTED across the crease, so
+   it reads as the mirrored underside of the paper. Beneath the cut, a second layer
+   shows through. Everything is driven by --p (0 = flat, 1 = corner fully folded),
+   which the JS scrubs from scroll position — so the fold tracks scroll direction.
+
+   Markup:
+   <section class="peel">
+     <div class="peel__sticky">
+       <div class="peel__beneath"> …revealed layer… </div>
+       <div class="peel__paper">
+         <div class="peel__front"> …page content… </div>
+         <div class="peel__flap">   (identical content, becomes the underside)
+           <div class="peel__flap-shade"></div>
+         </div>
+       </div>
+     </div>
+   </section>
+*/
+
+.peel{
+  --p: 0;                              /* scroll progress 0..1, written by JS */
+  --L: calc(var(--p) * 100%);         /* crease legs grow along top & right edges */
+  position: relative;
+  height: 300vh;                      /* scroll length to scrub the fold */
+}
+
+.peel__sticky{
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+/* the square page */
+.peel__paper,
+.peel__beneath{
+  width: min(78vmin, 560px);
+  aspect-ratio: 1;
+  border-radius: 10px;
+}
+
+.peel__beneath{ position: absolute; }   /* sits under the page, shown through the cut */
+
+.peel__paper{ position: relative; }
+
+/* FRONT: full page with the top-right triangle removed so you see the layer beneath.
+   Crease runs from A(100%-L, 0) on the top edge to B(100%, L) on the right edge. */
+.peel__front{
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  clip-path: polygon(0 0, calc(100% - var(--L)) 0, 100% var(--L), 100% 100%, 0 100%);
+}
+
+/* FLAP: the same page content, clipped to the removed corner triangle in local
+   space, then reflected across the crease (matrix(0,1,1,0,0,0) = mirror over y=x
+   about the top-left origin, then translated so A and B stay pinned to the crease).
+   Result: a flat, mirrored corner lying over the page — the paper's underside. */
+.peel__flap{
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  transform-origin: 0 0;
+  clip-path: polygon(calc(100% - var(--L)) 0, 100% 0, 100% var(--L));
+  transform: translate(calc(100% - var(--L)), calc(var(--L) - 100%)) matrix(0, 1, 1, 0, 0, 0);
+  /* hide the flap entirely until there is a fold, avoids a 1px seam at rest */
+  opacity: min(1, calc(var(--p) * 40));
+}
+
+/* darken the outer corner of the flap so it reads as a back-of-paper underside,
+   with a crisp highlight right along the crease */
+.peel__flap-shade{
+  position: absolute;
+  inset: 0;
+  /* gradient runs toward the folded corner (bottom-right in the flap's mirrored space) */
+  background: linear-gradient(135deg,
+    rgba(255,255,255,0.35) 0%,
+    rgba(0,0,0,0.10) 22%,
+    rgba(0,0,0,0.34) 100%);
+  mix-blend-mode: multiply;
+}
+
+/* a soft cast shadow from the lifted flap onto the page, hugging the crease */
+.peel__front::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  clip-path: polygon(calc(100% - var(--L)) 0, 100% 0, 100% var(--L));
+  background: radial-gradient(120% 120% at 100% 0%, rgba(0,0,0,0.28), rgba(0,0,0,0) 60%);
+  opacity: var(--p);
+}
+
+@media (prefers-reduced-motion: reduce){
+  /* no scrubbing: show the page flat and fully readable, corner un-folded */
+  .peel{ --p: 0 !important; height: auto; }
+  .peel__sticky{ position: static; height: auto; padding: 8vh 0; }
+  .peel__flap{ display: none; }
+}

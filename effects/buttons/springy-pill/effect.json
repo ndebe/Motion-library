@@ -1,0 +1,20 @@
+{
+  "id": "springy-pill",
+  "title": "Springy pill button (background pops with overshoot)",
+  "category": "buttons",
+  "target": ["button", "link"],
+  "trigger": ["hover"],
+  "type": ["scale", "hover", "spring"],
+  "tags": ["pill", "overshoot", "bounce", "spring-ease", "background", "cubic-bezier"],
+  "description": "A pill-shaped button whose rounded fill lives behind the label (absolute, inset:0, z-index:-1). On hover the fill scales up from center with a springy overshoot ease so it pops past its target and settles — a satisfying, tactile bounce. The label stays put; only the pill breathes.",
+  "source": { "name": "trevornoah.com", "verified": true },
+  "params": {
+    "duration": "0.45s",
+    "ease": "cubic-bezier(0.17, 0.67, 0.3, 1.33)  (overshoots — the >1 final control point is the bounce)",
+    "transform_origin": "center",
+    "hover_scale": "1.06",
+    "pill": "position:absolute; inset:0; z-index:-1; border-radius:calc(height/2)"
+  },
+  "a11y": "prefers-reduced-motion: the pill still fills on hover but with a plain, non-overshooting ease and no bounce.",
+  "createdAt": "2026-07-23"
+}
